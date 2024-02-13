@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {db} from './firebase'
 import './style.css'
 import logo from './logo.jpeg'
@@ -20,7 +20,18 @@ const Add = () => {
     const onFormSubmit = async () => {
         await addDoc(dbref, {Expediteur: expediteur, Destinataire: destinataire, NumeroDuDestinataire: numero, AdresseDestinataire: adresse, numéroDeSuivi: suivi, Statut: statut})
         console.log("data created")
+        alert("Data created");
     }
+
+    useEffect(() => {
+        // to only keep the flex display on the add page
+        document.body.classList.add('body-center');
+
+        // Remove the body-center class when the component unmounts
+        return () => {
+            document.body.classList.remove('body-center');
+        };
+    }, []);
 
     return (
         <>

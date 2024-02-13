@@ -39,7 +39,7 @@ const Liste = () => {
   }, [])
 
   return (
-    <div>
+    <div className='container-liste'>
       <ul>
         {clients.map((client) => (
           <li key={client.id} onClick={() => handleExpand(client.id)} className={`card ${client.expanded ? 'expanded' : ''}`}>
