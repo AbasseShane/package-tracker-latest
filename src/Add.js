@@ -3,7 +3,7 @@ import {db} from './firebase'
 import './style.css'
 import logo from './logo.jpeg'
 import {Link} from 'react-router-dom'
-import {getDoc, addDoc, collection, where, query} from 'firebase/firestore'
+import {getDoc, addDoc, collection, where, query, serverTimestamp} from 'firebase/firestore'
 
 
 const Add = () => {
@@ -17,21 +17,51 @@ const Add = () => {
 
     const dbref = collection(db, "Clients")
 
-    const onFormSubmit = async () => {
-        await addDoc(dbref, {Expediteur: expediteur, Destinataire: destinataire, NumeroDuDestinataire: numero, AdresseDestinataire: adresse, numéroDeSuivi: suivi, Statut: statut})
-        console.log("data created")
-        alert("Data created");
+    const onFormSubmit = async (event) => {
+        event.preventDefault();
+        if(expediteur!=='' && destinataire!=='' && numero!=='' && adresse!=='' && suivi!=='' && statut!=='')
+        {   
+            await addDoc(dbref, 
+            {
+                Expediteur: expediteur, 
+                Destinataire: destinataire, 
+                NumeroDuDestinataire: numero, 
+                AdresseDestinataire: adresse, 
+                numéroDeSuivi: suivi, 
+                Statut: statut,
+                Timestamp: serverTimestamp(),
+
+            }).then (() => {
+                console.log("data created")
+                alert("Data created");
+                resetForm();
+                
+            })
+        
+        }
+        else alert("Veuillez remplir tous les champs!");
+            
+        
+    }
+
+    const resetForm = () =>{
+         // Reset the form values
+         console.log("this function was called")
+         window.location.reload(true)
     }
 
     useEffect(() => {
         // to only keep the flex display on the add page
         document.body.classList.add('body-center');
+        
 
         // Remove the body-center class when the component unmounts
         return () => {
             document.body.classList.remove('body-center');
         };
+        
     }, []);
+
 
     return (
         <>

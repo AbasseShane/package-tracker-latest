@@ -16,19 +16,23 @@
 .container {
     padding: 30px 50px;
     background-color: #1f2937;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 auto;
+    /* margin: 0 auto; */
 }
 
 .container-liste {
    
-    padding: 20px; /* Add some padding for spacing */
+    width: 100%;
   }
 
+
+
 .container .form {
-    padding: 10px 30px
+    padding: 10px 30px;
+    width: 100%;
 }
 
 .container .form h2{
@@ -78,18 +82,33 @@
     margin-top: 20px;
 }
 
+.container-liste .header{
+    font-size: 24px;
+    color: #1f2937;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 0px 20px 0px;
+}
+
 .card {
     border: 1px solid black;
-    padding: 10px;
-    margin: 10px auto;
+    color: white;
+    padding: 20px 40px;
+    background-color: #1f2937;
     transition: background-color 0.3s;
     list-style-type: none;
-    width: 300px;
+    width: 100%;
     position: relative;
 }
 
-.expanded {
-    background-color: #e0e0e0;
+.card:nth-child(even) {
+    background-color: #022bbdb7;
+    color: white;
+}
+
+.card p {
+    margin-bottom: 5px;
 }
 
 .cardContent{
@@ -102,8 +121,8 @@
 
 .removeButton {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 2rem;
+    right: 10rem;
     color: #ff0000;
     font-size: 48px;
     cursor: pointer;

@@ -20,6 +20,7 @@ const Liste = () => {
   const handleRemove = async (id) => {
     try{
       await deleteDoc(doc(db, "Clients", id));
+      alert("record deleted");
       setClients((prevClients) => prevClients.filter((client)=> client.id !==id));
     } catch (error) {
       console.error('Error removing document: ', error);
@@ -40,17 +41,19 @@ const Liste = () => {
 
   return (
     <div className='container-liste'>
-      <ul>
+      <div className='header'>Liste Clients</div>
+      <ul className='listes'>
         {clients.map((client) => (
           <li key={client.id} onClick={() => handleExpand(client.id)} className={`card ${client.expanded ? 'expanded' : ''}`}>
             
-              {client.Destinataire}
+              <p>{client.Destinataire} </p>
+              <p>{client.Statut}</p>
+              <p>Adresse à livrer: {client.AdresseDestinataire}</p>
             
             <span onClick={() => handleRemove(client.id)} className='removeButton'>&#8722;</span>
               <div className='cardContent'>
                 <p>Expediteur: {client.Expediteur}</p>
                 <p>Numéro du destinataire: {client.NumeroDuDestinataire}</p>
-                <p>Adresse à livrer: {client.AdresseDestinataire}</p>
                 <p>Numéro de suivi: {client.numéroDeSuivi}</p>
                 <p>Status: {client.Statut}</p>
               </div>
