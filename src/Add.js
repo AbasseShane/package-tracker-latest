@@ -85,8 +85,14 @@ const Add = () => {
                     <div className='input-box'>
                         <input type='text' placeholder='Numéro de suivi' onChange={(e) => setSuivi(e.target.value)}></input>
                     </div>
-                    <div className='input-box'>
-                        <input type='text' placeholder='Statut' onChange={(e) => setStatus(e.target.value)}></input>
+                    <div className='input-box CM'>
+                        <label>Status: </label>
+                        <select onChange={(e) => setStatus(e.target.value)} value={statut}>
+                            <option value="sending">Sending</option>
+                            <option value="on-the-way">On the way</option>
+                            <option value="delivered">Delivered</option>
+                        </select>
+                        {/* <input type='text' placeholder='Statut' onChange={(e) => setStatus(e.target.value)}></input> */}
                     </div>
                     <button onClick={onFormSubmit}>Valider</button>
                 </div>

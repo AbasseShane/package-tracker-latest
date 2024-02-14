@@ -47,6 +47,10 @@
     margin-bottom: 5px;
 }
 
+.CM {
+    color: #e5e7eb;
+}
+
 .container .form .input-box input {
     border: none;
     outline: none;
@@ -84,11 +88,24 @@
 
 .container-liste .header{
     font-size: 24px;
-    color: #1f2937;
+    color: #e5e7eb;
     margin-bottom: 20px;
     font-weight: bold;
     text-align: center;
     padding: 10px 0px 20px 0px;
+    background-color: #3882f6;
+    border-bottom: 3px solid black;
+}
+
+#statusFilter {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+#statusFilter label {
+    font-size: 1.2rem;
 }
 
 .card {
@@ -119,15 +136,31 @@
     display: block;
 }
 
+.listTitle {
+    font-weight: bold;
+    
+    color: white;
+}
+
 .removeButton {
+    width: 20px;
+    height: 5px;
     position: absolute;
-    top: 2rem;
-    right: 10rem;
-    color: #ff0000;
-    font-size: 48px;
+    bottom: 20px;
+    right: 55px;
+    background-color: #ff0000;
+    font-size: 3rem;
     cursor: pointer;
 }
 
+.updateStatusButton {
+    position: absolute;
+    bottom: 3rem;
+    right: 50px;
+    color: #00FF00;
+    font-size: 48px;
+    cursor: pointer;
+}
 /* .logo {
     width: 30%;
     height: auto;
