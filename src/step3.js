@@ -61,7 +61,7 @@ const Liste = () => {
       querySnapshot.forEach((doc) => {
         clientData.push({ id: doc.id, ...doc.data() });
       });
-      setClients(clientData.filter((client) => client.Statut === "delivered"));
+      setClients(clientData.filter((client) => client.Statut === "sending"));
     };
     fetchData();
   }, []);
@@ -72,7 +72,7 @@ const Liste = () => {
       <div className="header">Liste Clients</div>
 
       <div id="statusFilter">
-        <label>Packages Delivered</label>
+        <label>Packages Sending</label>
         {/* <select onChange={handleStatusFilter} value={selectedStatus}>
           <option value="">All</option>
           <option value="sending">Sending</option>

@@ -70,35 +70,35 @@ const Add = () => {
                 <div className='form'>
                     <h2>Entrer Infos</h2>
                     <div className='input-box'>
-                        <input type='text' placeholder='Expéditeur' onChange={(e) => setExpediteur(e.target.value)}></input>
+                        <input className='input' type='text' placeholder='Expéditeur' onChange={(e) => setExpediteur(e.target.value)}></input>
                     </div>
                     <div className='input-box'>
-                        <input type='text' placeholder='Destinataire' onChange={(e) => setDestinataire(e.target.value)}></input>
+                        <input className='input' type='text' placeholder='Destinataire' onChange={(e) => setDestinataire(e.target.value)}></input>
                     </div>
                     <div className='input-box'>
-                        <input type='text' placeholder='Numéro du destinataire' onChange={(e) => setNumero(e.target.value)}></input>
+                        <input className='input' type='text' placeholder='Numéro du destinataire' onChange={(e) => setNumero(e.target.value)}></input>
                     </div>
                     <div className='input-box'>
-                        <input type='text' placeholder='Adresse à livrer' onChange={(e) => setAdresse(e.target.value)}></input>
+                        <input className='input' type='text' placeholder='Adresse à livrer' onChange={(e) => setAdresse(e.target.value)}></input>
                     </div>
                     
                     <div className='input-box'>
-                        <input type='text' placeholder='Numéro de suivi' onChange={(e) => setSuivi(e.target.value)}></input>
+                        <input className='input' type='text' placeholder='Numéro de suivi' onChange={(e) => setSuivi(e.target.value)}></input>
                     </div>
                     <div className='input-box CM'>
-                        <label>Status: </label>
+                        <label className='input'>Status: </label>
                         <select onChange={(e) => setStatus(e.target.value)} value={statut}>
+                            <option value="default">Choose a status</option>
                             <option value="sending">Sending</option>
                             <option value="on-the-way">On the way</option>
                             <option value="delivered">Delivered</option>
                         </select>
-                        {/* <input type='text' placeholder='Statut' onChange={(e) => setStatus(e.target.value)}></input> */}
                     </div>
                     <button onClick={onFormSubmit}>Valider</button>
                 </div>
             </div>
             <div className='link'>
-                <Link to='/Liste' className='liste-link'>Liste Clients</Link>
+                <Link to='/' className='form-link'>Home</Link>
             </div>
         </>
         
